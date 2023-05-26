@@ -3,7 +3,7 @@ import logo from "../logo.svg";
 
 const AppDescription = () => {
   return (
-    <div className="bg-gray-800 text-center text-white h-screen py-2">
+    <div className="text-center text-white">
       <div className="flex justify-center">
         <img src={logo} className="w-[70px] animate-spin" alt="logo" />
       </div>
