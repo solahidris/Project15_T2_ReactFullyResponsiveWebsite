@@ -2,7 +2,9 @@ import "./App.css";
 // import AppDescription from "./components/AppDescription";
 import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 //https://react-icons.github.io/react-icons (icons website)
 
@@ -10,6 +12,15 @@ function App() {
   // Google Map API Key
   // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
   const apiKeyGmaps = process.env.REACT_APP_GOOGLEMAP_API_KEY_MAP_A;
+
+  // can export to component later
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+  };
 
   return (
     <div className="bg-emerald-950/90 h-screen pt-10 pb-20">
@@ -157,8 +168,7 @@ function App() {
         <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
 
         {/* whole layout for the carousell */}
-        <div className="bg-red-100/10 ml-10 flex gap-x-5 h-[15rem]">
-
+        <div className="bg-red-100/10 mx-10 flex gap-x-5 h-[15rem]">
 
           {/* each comment 1st-container */}
           <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
@@ -294,6 +304,21 @@ function App() {
       <div className="bg-white py-20">
          {/* Location title */}
         <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
+        <h2>Image Carousel</h2>
+        <Slider {...carouselSettings}>
+        <div>
+          <img src="https://www.shutterstock.com/image-illustration/3d-render-number-one-glowing-260nw-1890767740.jpg" alt="Image 1" />
+        </div>
+        <div>
+          <img src="https://www.shutterstock.com/image-illustration/3d-render-number-two-glowing-260nw-1890767737.jpg" alt="Image 2" />
+        </div>
+        <div>
+          <img src="https://www.shutterstock.com/image-illustration/3d-render-number-three-glowing-260nw-1890767731.jpg" alt="Image 3" />
+        </div>
+        {/* Add more images as needed */}
+      </Slider>
+
+
         <div className="flex justify-center gap-x-[5rem] bg-sky-300 h-[5rem]">
           <div className="bg-green-200 flex justify-items-center">
             <button className="bg-red-200"><FaTiktok /></button>
