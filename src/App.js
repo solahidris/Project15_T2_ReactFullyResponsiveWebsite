@@ -3,11 +3,11 @@ import AppDescription from "./components/AppDescription";
 
 function App() {
   // Google Map API Key
-  const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY;
+  // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
   const apiKeyGmaps = process.env.REACT_APP_GOOGLEMAP_API_KEY_MAP_A;
 
   return (
-    <div className="bg-gray-300/60 h-screen pt-10 pb-20">
+    <div className="bg-emerald-950/90 h-screen pt-10 pb-20">
       {/* <AppDescription /> */}
 
 {/* Website Header */}
@@ -35,18 +35,18 @@ function App() {
         <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">location</button>
         {/* <button>article</button> */}
         <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">menu</button>
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">testimony</button>
+        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">reviews</button>
         <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
       </div>
 
 {/* Home Page */}
       <div className="bg-gray-100 px-10 lg:px-[20rem] py-5">
-  {/* home title */}
-      <p className="text-center pt-[1rem] mb-[-2.75rem] font-mono tracking-widest text-lg"> [ home ]  </p>
+        {/* home title */}
+        <p className="text-center pt-[1rem] mb-[-2.75rem] font-mono tracking-widest text-lg"> [ home ]  </p>
         
-        <div className="bg-gray-200 my-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+        <div className="bg-emerald-950/90 text-white my-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
           <p>We believe in a simple formula,</p>
-          <p className="my-5 rounded-3xl py-5 px-2 font-bold text-base bg-white ">Good (Coffee + Beans + Company) = Good Times</p>
+          <p className="my-5 text-black rounded-3xl py-5 px-2 font-bold text-base bg-white ">Good (Coffee + Beans + Company) = Good Times</p>
           <p className="pb-5">
             And we aim to give you just that while still main a sustainable
             business on the side
@@ -58,9 +58,9 @@ function App() {
 {/* Location Page */}
     <div className="bg-white">
   
-      <div className="bg-gray-300/60 px-[10rem] py-[5rem] lg:px-[20rem]">
+      <div className="bg-emerald-950/90 px-[10rem] py-[5rem] lg:px-[20rem]">
         {/* Location title */}
-        <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
+        <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
           {/* Google Maps API Pin */}
           <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
             <div className="flex justify-center py-2">
@@ -74,7 +74,7 @@ function App() {
               ></iframe>
             </div>
             {/* Text below Gmaps */}
-            <p className="font-mono text-xs font-bold text-center">
+            <p className="text-white font-mono text-xs text-center tracking-wide">
               📍 Hirup Cafe Seksyen 9
             </p>
           </div>
@@ -135,15 +135,17 @@ function App() {
       </div>
 
 {/* Testimony Page */}
-      <div className="bg-gray-100 py-10">
-          <p className="text-center">this is the testimony carosell</p>
+      <div className="bg-emerald-950/90 py-20">
+        {/* Location title */}
+        <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
       </div>
 
       <p className="text-white text-center">----------------------------</p>
 
 {/* Socials Page */}
-      <div className="bg-white py-10">
-         <p className="text-center">this is the socials page</p>
+      <div className="bg-white py-20">
+         {/* Location title */}
+        <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
       </div>
 
 
