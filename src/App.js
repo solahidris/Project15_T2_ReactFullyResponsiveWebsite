@@ -1,6 +1,8 @@
 import "./App.css";
 // import AppDescription from "./components/AppDescription";
-import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
+import { FaRegUserCircle, FaStar } from 'react-icons/fa';
+
 
 //https://react-icons.github.io/react-icons (icons website)
 
@@ -27,7 +29,7 @@ function App() {
             coffee and kicks
           </p>
           <div className="flex mt-[0.1rem]">
-          <p className="grow self-center text-xs font-mono text-black tracking-widest">
+          <p className="grow self-center text-xs font-mono tracking-widest">
             caffeine near me
           </p>
           <p className="mr-2 scale-75"><FaTiktok /></p>
@@ -73,6 +75,7 @@ function App() {
           <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
             <div className="flex justify-center py-2">
               <iframe
+                title="gmaps-pin"
                 width="1200"
                 height="350"
                 className="border:0 rounded-3xl"
@@ -102,7 +105,7 @@ function App() {
 
             {/* americano */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              <img src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?" className="rounded-t-3xl row-end-1 row-span-2"/>
+              <img src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 7</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Americano</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
@@ -113,7 +116,7 @@ function App() {
 
             {/* latte  */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              <img src="https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?" className="rounded-t-3xl row-end-1 row-span-2"/>
+              <img src="https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 10</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Latte</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
@@ -124,7 +127,7 @@ function App() {
 
             {/* mocha */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              <img src="https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?" className="rounded-t-3xl row-end-1 row-span-2"/>
+              <img src="https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 11</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Mocha</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
@@ -135,7 +138,7 @@ function App() {
 
             {/* caramel macchiato */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              <img src="https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?" className="rounded-t-3xl row-end-1 row-span-2"/>
+              <img src="https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 12</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Caramel Macchiato</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
@@ -152,6 +155,137 @@ function App() {
       <div className="bg-emerald-950/90 py-20">
         {/* Location title */}
         <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
+
+        {/* whole layout for the carousell */}
+        <div className="bg-red-100/10 ml-10 flex gap-x-5 h-[15rem]">
+
+
+          {/* each comment 1st-container */}
+          <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+            {/* user container top with stars */}
+            <div>
+              {/* 1st row info icon and name */}
+              <div className="flex gap-x-2 mx-4">
+                <FaRegUserCircle className="self-center text-emerald-950/90"/>
+                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Azrai Naqiuddin</p>
+              </div>
+              {/* 2nd row info 5 star icon */}
+              <div className="flex self-center mx-4 py-2">
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+              <p className="px-4 py-3 text-xs text-white">kat sini ada jam pasir hihihi, plus a caramel macchiato yang dibuat oleh barista sedap 🥺👍👍</p>
+            </div>
+          </div>
+
+          {/* each comment 2nd-container */}
+          <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+            {/* user container top with stars */}
+            <div>
+              {/* 1st row info icon and name */}
+              <div className="flex gap-x-2 mx-4 ">
+                <FaRegUserCircle className="self-center text-emerald-950/90"/>
+                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Danial Syafiq</p>
+              </div>
+              {/* 2nd row info 5 star icon */}
+              <div className="flex self-center mx-4 py-2">
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+              <p className="px-4 py-3 text-xs text-white">Great coffee. The barista was very knowledgeable about his coffee</p>
+            </div>
+          </div>
+
+          {/* each comment 3rd-container */}
+          <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+            {/* user container top with stars */}
+            <div>
+              {/* 1st row info icon and name */}
+              <div className="flex gap-x-2 mx-4 ">
+                <FaRegUserCircle className="self-center text-emerald-950/90"/>
+                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Hafiz Ahmad</p>
+              </div>
+              {/* 2nd row info 5 star icon */}
+              <div className="flex self-center mx-4 py-2">
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+              <p className="px-4 py-3 text-xs text-white">A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food.</p>
+            </div>
+          </div>
+
+          {/* each comment 4th-container */}
+          <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+            {/* user container top with stars */}
+            <div>
+              {/* 1st row info icon and name */}
+              <div className="flex gap-x-2 mx-4 ">
+                <FaRegUserCircle className="self-center text-emerald-950/90"/>
+                <p className="text-emerald-950/90 font-mono text-xs grow text-end">GIBS Eco Resort</p>
+              </div>
+              {/* 2nd row info 5 star icon */}
+              <div className="flex self-center mx-4 py-2">
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+              <p className="px-4 py-3 text-xs text-white">Kopi diorg mmg sedappp,</p>
+            </div>
+          </div>
+
+          {/* each comment 5th-container */}
+          <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+            {/* user container top with stars */}
+            <div>
+              {/* 1st row info icon and name */}
+              <div className="flex gap-x-2 mx-4">
+                <FaRegUserCircle className="self-center text-emerald-950/90"/>
+                <p className="text-emerald-950/90 font-mono text-xs text-end">Uncle Roger</p>
+              </div>
+              {/* 2nd row info 5 star icon */}
+              <div className="flex self-center mx-4 py-2">
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <FaStar className="text-yellow-300"/>
+                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+              <p className="px-4 py-3 text-xs text-white">Sedap, harga berpatutan, selesa</p>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <p className="text-white text-center">----------------------------</p>
@@ -161,14 +295,14 @@ function App() {
          {/* Location title */}
         <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
         <div className="flex justify-center gap-x-[5rem] bg-sky-300 h-[5rem]">
-          <div>
-            <p className="bg-red-200 mr-2 h-full"><FaTiktok /></p>
+          <div className="bg-green-200 flex justify-items-center">
+            <button className="bg-red-200"><FaTiktok /></button>
           </div>
-          <div>
-            <p className="bg-red-400 mr-2 h-screen"><FaTwitter /></p>
+          <div className="bg-green-300 flex justify-items-center">
+            <button className="bg-red-400"><FaTwitter /></button>
           </div>
-          <div>
-            <p className="bg-red-200"><FaInstagram /></p>
+          <div className="bg-green-200 flex justify-items-center">
+            <button className="bg-red-200"><FaInstagram /></button>
           </div>
         </div>
         contact us formul
