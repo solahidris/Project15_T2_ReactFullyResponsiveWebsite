@@ -27,7 +27,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white mx-10 transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
@@ -358,7 +358,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white rounded mx-10 px-10 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
