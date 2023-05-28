@@ -5,6 +5,7 @@ import { FaRegUserCircle, FaStar } from 'react-icons/fa';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import maphardcode from "./map_hardcode.png";
 
 //https://react-icons.github.io/react-icons (icons website)
 
@@ -84,9 +85,10 @@ function App() {
         <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
         
           {/* Google Maps API Pin */}
-          <div className="px-[10rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+          <div className="px-[10rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">    
             <div className="flex justify-center py-2">
-              <iframe
+              <img src={maphardcode} alt="" className="scale-[120%] mb-[1rem]"/>
+              {/* <iframe
                 title="gmaps-pin"
                 width="1200"
                 height="350"
@@ -94,7 +96,7 @@ function App() {
                 loading="lazy"
                 allowfullscreen
                 src={apiKeyGmaps}
-              ></iframe>
+              ></iframe> */}
             </div>
             {/* Text below Gmaps */}
             <p className="text-white font-mono text-xs text-center tracking-wide">
