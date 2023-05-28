@@ -76,13 +76,15 @@ function App() {
       </div>
 
 {/* Location Page */}
-    <div className="bg-white">
+    <div className="">
   
-      <div className="bg-emerald-950/90 px-[10rem] py-[5rem] lg:px-[20rem]">
-        {/* Location title */}
+      <div className="bg-emerald-950/90 py-[5rem] lg:px-[20rem]">
+       
+        {/* Location title */} 
         <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
+        
           {/* Google Maps API Pin */}
-          <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+          <div className="px-[10rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
             <div className="flex justify-center py-2">
               <iframe
                 title="gmaps-pin"
