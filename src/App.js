@@ -18,7 +18,7 @@ function App() {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
   };
 
@@ -27,7 +27,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white rounded-3xl mx-10 lg:mx-[22%] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
@@ -170,9 +170,8 @@ function App() {
         {/* whole layout for the carousell */}
         <div className="mx-10 h-[15rem]">
         
-        {/* just adding some space - delete later */}
-        <div className="pt-10"></div>
-        <Slider {...carouselSettings}>
+   
+        <Slider {...carouselSettings} className="pb-3">
         {/* first container */}
         <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 1st-container */}
@@ -201,8 +200,11 @@ function App() {
           </div>
         </div>
 
+        {/* spacer container 1-2 & 2-3 */}
+        <div></div>
+
         {/* second container */}
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-3.5rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 2nd-container */}
           <div>
             {/* user container top with stars */}
@@ -223,14 +225,14 @@ function App() {
               </div>
             </div>
             {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
               <p className="px-4 py-3 text-xs text-white">Great coffee. The barista was very knowledgeable about his coffee</p>
             </div>
           </div>
         </div>
 
         {/* third container */}
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[2rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 3rd-container */}
           <div>
             {/* user container top with stars */}
@@ -251,14 +253,17 @@ function App() {
               </div>
             </div>
             {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
               <p className="px-4 py-3 text-xs text-white">A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food.</p>
             </div>
           </div>
         </div>
 
+        {/* spacer container 3-4 & 4-5 */}
+        <div></div>
+
         {/* fourth container */}
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-1.3rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 4th-container */}
           <div>
             {/* user container top with stars */}
@@ -279,14 +284,14 @@ function App() {
               </div>
             </div>
             {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
               <p className="px-4 py-3 text-xs text-white">Kopi diorg mmg sedappp,</p>
             </div>
           </div>
         </div>
 
         {/* fifth container */}
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[3.8rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 5th-container */}
           <div>
             {/* user container top with stars */}
@@ -307,11 +312,15 @@ function App() {
               </div>
             </div>
             {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
+            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
               <p className="px-4 py-3 text-xs text-white">Sedap, harga berpatutan, selesa</p>
             </div>
           </div>
         </div>
+
+        {/* spacer container 5-1 */}
+        <div></div>
+        
       </Slider>
 
         </div>
