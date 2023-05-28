@@ -27,7 +27,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 lg:mx-[22%] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white rounded-3xl mx-10 transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
@@ -204,7 +204,7 @@ function App() {
         <div></div>
 
         {/* second container */}
-        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-3.5rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
+        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-3.5rem] lg:ml-[-2.5rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
           {/* each comment 2nd-container */}
           <div>
             {/* user container top with stars */}
