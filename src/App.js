@@ -27,7 +27,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white mx-10 px-3 transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white mx-10 pr-5 transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
@@ -36,7 +36,7 @@ function App() {
           alt="logoTitle"
         />
         <div className="self-center">
-          <p className="self-center text-2xl font-mono text-black font-bold tracking-widest">
+          <p className="self-center text-xl font-mono text-black font-bold tracking-widest">
             coffee and kicks
           </p>
           <div className="flex mt-[0.1rem]">
@@ -358,7 +358,7 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 px-5 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img
           className="h-[7rem]"
           src={
@@ -367,7 +367,7 @@ function App() {
           alt="logoTitle"
         />
         <div className="self-center">
-          <p className="self-center text-xl font-mono text-black font-bold tracking-widest">
+          <p className="self-center text-lg font-mono text-black font-bold tracking-widest">
             coffee and kicks
           </p>
           <div className="flex mt-[0.1rem]">
