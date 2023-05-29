@@ -100,7 +100,7 @@ function App() {
             </div>
             {/* Text below Gmaps */}
             <p className="text-white font-mono text-xs text-center tracking-wide">
-              📍 Hirup Cafe Seksyen 9
+              📍 Hirup Cafe Seksyen 990
             </p>
             <p className="mt-2 text-white font-mono text-[10px] text-center tracking-wide">44, Jalan Tengku Ampuan Zabedah A 9/A, Seksyen 9, 40100 Shah Alam, Selangor
             </p>
