@@ -12,16 +12,14 @@ import { useState } from "react";
 
 function App() {
 
-  const [drinksTemp, setDrinksTemp] = useState("hot");
+  const [drinksTemp, setDrinksTemp] = useState("hotDrinks");
 
   const drinksTempHandler = (event) => {
     const buttonValue = (event.target.value);
-    if (buttonValue === "americanoHotButton") {
-      setDrinksTemp("hot");
-      console.log(drinksTemp, "if hot");
-    } else if (buttonValue === "americanoColdButton") {
-      setDrinksTemp("cold");
-      console.log(drinksTemp, "if cold");
+    if (buttonValue === "hotDrinks") {
+      setDrinksTemp("hotDrinks");
+    } else {
+      setDrinksTemp("coldDrinks");
     }
   };
   // Google Map API Key
@@ -133,57 +131,61 @@ function App() {
 
             {/* americano */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">              
-              {/* hot americano */}
-              <img src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
-              {/* iced americano */}
-              <img src="https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
+              { drinksTemp === "hotDrinks" ?
+                <img src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?" alt="hotamericano" className="rounded-t-3xl row-end-1 row-span-2"/>
+                :
+                <img src="https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?" alt="iceamericano" className="rounded-t-3xl row-end-1 row-span-2"/>
+              }
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 7</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Americano</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button value="americanoHotButton" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button value="americanoColdButton" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
               </div>
-            </div>
+            </div> 
 
             {/* latte  */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              {/* hot latte */}
-              <img src="https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
-              {/* iced latte */}
-              <img src="https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
+            { drinksTemp === "hotDrinks" ?
+                <img src="https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?" alt="hotlatte" className="rounded-t-3xl row-end-1 row-span-2"/>
+                :
+                <img src="https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?" alt="icelatte" className="rounded-t-3xl row-end-1 row-span-2"/>
+              }
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 10</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Latte</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
               </div>
             </div>
 
             {/* mocha */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              {/* hot mocha */}
-              <img src="https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
-              {/* iced mocha */}
-              <img src="https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
+              { drinksTemp === "hotDrinks" ?
+              <img src="https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?" alt="hotmocha" className="rounded-t-3xl row-end-1 row-span-2"/>
+              :
+              <img src="https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?" alt="icedmocha" className="rounded-t-3xl row-end-1 row-span-2"/>
+              }
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 11</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Mocha</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
               </div>
             </div>
 
             {/* caramel macchiato */}
             <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              {/* hot caramel macchiato */}
-              <img src="https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
-              {/* iced caramel macchiato */}
-              <img src="https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?" alt="" className="rounded-t-3xl row-end-1 row-span-2"/>
+              { drinksTemp === "hotDrinks" ?
+              <img src="https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?" alt="hotcaramel" className="rounded-t-3xl row-end-1 row-span-2"/>
+              :
+              <img src="https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?" alt="icedcaramel" className="rounded-t-3xl row-end-1 row-span-2"/>
+              }
               <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 12</p>
               <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Caramel Macchiato</p>
               <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
               </div>
             </div>
 
