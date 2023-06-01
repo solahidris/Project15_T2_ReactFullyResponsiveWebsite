@@ -193,6 +193,10 @@ function App() {
 
       </div>
 
+{/* Menu Page 2.0*/}
+<div className="py-20 bg-emerald-100">
+</div>
+
 {/* Testimony Page */}
       <div className="bg-emerald-950/90 py-20">
         {/* Location title */}
