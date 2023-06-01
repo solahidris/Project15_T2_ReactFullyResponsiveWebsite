@@ -9,8 +9,21 @@ import maphardcode from "./map_hardcode.png";
 import { useState } from "react";
 
 //https://react-icons.github.io/react-icons (icons website)
+// ctrl shift L to pick all same
 
 function App() {
+
+  const [airStabak, setAirStabak] = useState([
+    {nama: "air1", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
+    {nama: "air2", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
+    {nama: "air3", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
+    {nama: "air4", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
+  const airStabakHandler = (event, index) => {
+    const newAirStabak = [...airStabak];
+    newAirStabak[index].suhu = event.target.value;
+    setAirStabak(newAirStabak);
+    console.log(airStabak, 'setairstabak')
+  };
 
   const [drinksTemp, setDrinksTemp] = useState("hotDrinks");
 
@@ -195,6 +208,20 @@ function App() {
 
 {/* Menu Page 2.0*/}
 <div className="py-20 bg-emerald-100">
+            
+  <p>this is working, need to change variable name to appropriate name, then do layout</p>
+  <div>
+    {airStabak.map((air, index) => (
+      <div key={index}>
+        <img src={ air.suhu === "panas" ? air.hotPic : air.icedPic} />
+        <span>{air.nama}</span>
+        <button value="panas" onClick={(event) => airStabakHandler(event, index)}>Panas</button>
+        <button value="sejuk" onClick={(event) => airStabakHandler(event, index)}>Sejuk</button>
+        <span>ni suhu: {air.suhu}</span>
+      </div>
+    ))}
+  </div>
+  
 </div>
 
 {/* Testimony Page */}
