@@ -13,16 +13,16 @@ import { useState } from "react";
 
 function App() {
 
-  const [airStabak, setAirStabak] = useState([
-    {nama: "air1", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
-    {nama: "air2", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
-    {nama: "air3", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
-    {nama: "air4", suhu: "panas", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
-  const airStabakHandler = (event, index) => {
-    const newAirStabak = [...airStabak];
-    newAirStabak[index].suhu = event.target.value;
-    setAirStabak(newAirStabak);
-    console.log(airStabak, 'setairstabak')
+  const [drinksMenu, setDrinksMenu] = useState([
+    {name: "Americano", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
+    {name: "Latte", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
+    {name: "Mocha", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
+    {name: "Caramel Macchiato", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
+  const drinksMenuHandler = (event, index) => {
+    const newDrinksMenu = [...drinksMenu];
+    newDrinksMenu[index].temp = event.target.value;
+    setDrinksMenu(newDrinksMenu);
+    console.log(drinksMenu, 'drinksMenu')
   };
 
   const [drinksTemp, setDrinksTemp] = useState("hotDrinks");
@@ -209,15 +209,18 @@ function App() {
 {/* Menu Page 2.0*/}
 <div className="py-20 bg-emerald-100">
             
-  <p>this is working, need to change variable name to appropriate name, then do layout</p>
-  <div>
-    {airStabak.map((air, index) => (
-      <div key={index}>
-        <img src={ air.suhu === "panas" ? air.hotPic : air.icedPic} />
-        <span>{air.nama}</span>
-        <button value="panas" onClick={(event) => airStabakHandler(event, index)}>Panas</button>
-        <button value="sejuk" onClick={(event) => airStabakHandler(event, index)}>Sejuk</button>
-        <span>ni suhu: {air.suhu}</span>
+  <p>changed variable name, need to do layout and put HC to bottom and flex the container of it</p>
+  <div className="grid grid-cols-2 mx-10 lg:mx-[20rem] gap-10">
+    {drinksMenu.map((air, index) => (
+      <div key={index} className="bg-gray-300/60 rounded-3xl h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+        <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl"/>
+        <div className="flex justify-center text-xs font-mono">
+          <span>{air.name}</span>
+        </div>
+        <div className="flex justify-center">
+          <button value="hotDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+          <button value="coldDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+        </div>
       </div>
     ))}
   </div>
