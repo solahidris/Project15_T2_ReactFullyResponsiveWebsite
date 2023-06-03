@@ -142,7 +142,7 @@ function App() {
     {drinksMenu.map((air, index) => (
         <div key={index} className="flex-col bg-gray-300/60 rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
             <div className="flex justify-center bg-[#1f3933] rounded-t-3xl">
-              <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl h-[200px] w-[200px]"/>
+              <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl max-h-[200px] max-w-[200px]"/>
             </div>
             <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">{air.temp === "hotDrink" ? air.hotPrice : air.icedPrice}</p>
             <div className="flex justify-center py-8 text-xs font-mono">
