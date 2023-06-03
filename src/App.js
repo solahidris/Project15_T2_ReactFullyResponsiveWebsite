@@ -14,10 +14,10 @@ import { useState } from "react";
 function App() {
 
   const [drinksMenu, setDrinksMenu] = useState([
-    {name: "Americano", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
-    {name: "Latte", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
-    {name: "Mocha", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
-    {name: "Caramel Macchiato", temp: "hotDrink", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
+    {name: "Americano", temp: "hotDrink", hotPrice: "RM 7", icedPrice: "RM 9", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
+    {name: "Latte", temp: "hotDrink", hotPrice: "RM 9", icedPrice: "RM 11", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
+    {name: "Mocha", temp: "hotDrink", hotPrice: "RM 11", icedPrice: "RM 13", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
+    {name: "Caramel Macchiato", temp: "hotDrink", hotPrice: "RM 12", icedPrice: "RM 14", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
   const drinksMenuHandler = (event, index) => {
     const newDrinksMenu = [...drinksMenu];
     newDrinksMenu[index].temp = event.target.value;
@@ -134,92 +134,21 @@ function App() {
 
     </div>
 
-{/* Menu Page */}
-      <div className="py-20">
-
-        {/* menu title */}
-        <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ menu ]  </p>
-          {/* 4 menu grid container */}
-          <div className="grid grid-cols-2 gap-10 mx-10 lg:mx-[20rem]">
-
-            {/* americano */}
-            <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">              
-              { drinksTemp === "hotDrinks" ?
-                <img src="https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?" alt="hotamericano" className="rounded-t-3xl row-end-1 row-span-2"/>
-                :
-                <img src="https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?" alt="iceamericano" className="rounded-t-3xl row-end-1 row-span-2"/>
-              }
-              <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 7</p>
-              <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Americano</p>
-              <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
-              </div>
-            </div> 
-
-            {/* latte  */}
-            <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-            { drinksTemp === "hotDrinks" ?
-                <img src="https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?" alt="hotlatte" className="rounded-t-3xl row-end-1 row-span-2"/>
-                :
-                <img src="https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?" alt="icelatte" className="rounded-t-3xl row-end-1 row-span-2"/>
-              }
-              <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 10</p>
-              <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Latte</p>
-              <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
-              </div>
-            </div>
-
-            {/* mocha */}
-            <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              { drinksTemp === "hotDrinks" ?
-              <img src="https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?" alt="hotmocha" className="rounded-t-3xl row-end-1 row-span-2"/>
-              :
-              <img src="https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?" alt="icedmocha" className="rounded-t-3xl row-end-1 row-span-2"/>
-              }
-              <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 11</p>
-              <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Mocha</p>
-              <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
-              </div>
-            </div>
-
-            {/* caramel macchiato */}
-            <div className="bg-gray-300/60 rounded-3xl grid grid-rows-3 grid-flow-col h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-              { drinksTemp === "hotDrinks" ?
-              <img src="https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?" alt="hotcaramel" className="rounded-t-3xl row-end-1 row-span-2"/>
-              :
-              <img src="https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?" alt="icedcaramel" className="rounded-t-3xl row-end-1 row-span-2"/>
-              }
-              <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">RM 12</p>
-              <p className="text-center row-start-2 row-span-1 row-end-3 text-xs font-mono">Caramel Macchiato</p>
-              <div className="flex justify-center row-start-4 row-end-5 pb-4">
-                <button value="hotDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-                <button value="coldDrinks" onClick={drinksTempHandler} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
-              </div>
-            </div>
-
-          </div>
-
-      </div>
-
-{/* Menu Page 2.0*/}
-<div className="py-20 bg-emerald-100">
+{/* Menu Page 2.0 - this is good for now i think */}
+<div className="py-20 bg-emerald-100/20">
             
-  <p>add price, add price state hot n cold, figure out layout</p>
-  <div className="grid grid-cols-2 gap-10 mx-10 lg:mx-[20rem]">
+  <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ menu ]  </p>
+  <div className="grid grid-cols-2 gap-10 mx-10 md:mx-[13rem] lg:mx-[16rem]">
     {drinksMenu.map((air, index) => (
-        <div key={index} className="flex-col bg-gray-300/60 rounded-3xl h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-            <div className="flex-none">
-              <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl"/>
+        <div key={index} className="flex-col bg-gray-300/60 rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+            <div className="flex justify-center bg-[#1f3933] rounded-t-3xl">
+              <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl h-[200px] w-[200px]"/>
             </div>
-            <div className="grow text-xs font-mono">
+            <p className="text-end mt-[-20px] mr-[8px] text-gray-200/90 text-[0.6rem] z-20 font-mono">{air.temp === "hotDrink" ? air.hotPrice : air.icedPrice}</p>
+            <div className="flex justify-center py-8 text-xs font-mono">
               <span>{air.name}</span>
             </div>
-            <div className="flex-none">
+            <div className="flex justify-center pb-8">
               <button value="hotDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
               <button value="coldDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
             </div>
