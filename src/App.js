@@ -7,34 +7,36 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import maphardcode from "./map_hardcode.png";
 import { useState } from "react";
+import { useRef } from "react";
+import ReactDOM from 'react-dom';
 
 //https://react-icons.github.io/react-icons (icons website)
 // ctrl shift L to pick all same
 
 function App() {
 
-  const [drinksMenu, setDrinksMenu] = useState([
+  // Drinks Initial State Value
+  const [drinksMenu, setDrinksTemp] = useState([
     {name: "Americano", temp: "hotDrink", hotPrice: "RM 7", icedPrice: "RM 9", hotPic:"https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg?", icedPic:"https://globalassets.starbucks.com/assets/921a409e6f55407da52eee4c8ad13ada.jpg?"},
     {name: "Latte", temp: "hotDrink", hotPrice: "RM 9", icedPrice: "RM 11", hotPic:"https://globalassets.starbucks.com/assets/b635f407bbcd49e7b8dd9119ce33f76e.jpg?", icedPic:"https://globalassets.starbucks.com/assets/f4fd128c834643fa8c74f4ae9f579013.jpg?"},
     {name: "Mocha", temp: "hotDrink", hotPrice: "RM 11", icedPrice: "RM 13", hotPic:"https://globalassets.starbucks.com/assets/915736da018842e788147f7eab73db73.jpg?", icedPic:"https://globalassets.starbucks.com/assets/0360378c6e774cc3a38d870fc75d5462.jpg?"},
     {name: "Caramel Macchiato", temp: "hotDrink", hotPrice: "RM 12", icedPrice: "RM 14", hotPic:"https://globalassets.starbucks.com/assets/58db701349cb48738069e8c912e2b3ac.jpg?", icedPic:"https://globalassets.starbucks.com/assets/363835b1db024636adeb4089ebb96291.jpg?"}]);
+
+  // Drinks (H/C) Button Click Handler
   const drinksMenuHandler = (event, index) => {
     const newDrinksMenu = [...drinksMenu];
     newDrinksMenu[index].temp = event.target.value;
-    setDrinksMenu(newDrinksMenu);
+    setDrinksTemp(newDrinksMenu);
     console.log(drinksMenu, 'drinksMenu')
   };
 
-  const [drinksTemp, setDrinksTemp] = useState("hotDrinks");
+  // Navbar Click Navigation Scroll
+  const homeLocation = useRef(null);
+  const locationLocation = useRef(null);
+  const menuLocation = useRef(null);
+  const reviewLocation = useRef(null);
+  const socialsLocation = useRef(null);
 
-  const drinksTempHandler = (event) => {
-    const buttonValue = (event.target.value);
-    if (buttonValue === "hotDrinks") {
-      setDrinksTemp("hotDrinks");
-    } else {
-      setDrinksTemp("coldDrinks");
-    }
-  };
   // Google Map API Key
   // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
   const apiKeyGmaps = process.env.REACT_APP_GOOGLEMAP_API_KEY_MAP_A;
@@ -76,19 +78,19 @@ function App() {
       </div>
 
 {/* Navbar Header */}
+ {/* scroll to function working - need to map this to simplify code */}
       <div className="bg-gray-100 py-3 mt-10 mb-20 mx-10 lg:mx-[20rem] gap-x-5 rounded-3xl flex justify-center font-mono text-xs transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">home</button>
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">location</button>
-        {/* <button>article</button> */}
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">menu</button>
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">reviews</button>
-        <button className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
+        <button onClick={()=>{const node = ReactDOM.findDOMNode(homeLocation.current); window.scrollTo(({top: node.offsetTop, behavior:"smooth"}))}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">home</button>
+        <button onClick={()=>{const node = ReactDOM.findDOMNode(locationLocation.current); window.scrollTo({top:node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">location</button>
+        <button onClick={()=>{const node = ReactDOM.findDOMNode(menuLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">menu</button>
+        <button onClick={()=>{const node = ReactDOM.findDOMNode(reviewLocation.current); window.scrollTo({top:node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">reviews</button>
+        <button onClick={()=>{const node = ReactDOM.findDOMNode(socialsLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
       </div>
 
 {/* Home Page */}
       <div className="bg-gray-100 px-10 lg:px-[20rem] py-5">
         {/* home title */}
-        <p className="text-center pt-[1rem] mb-[-2.75rem] font-mono tracking-widest text-lg"> [ home ]  </p>
+        <p id="homeId" ref={homeLocation} className="text-center pt-[1rem] mb-[-2.75rem] font-mono tracking-widest text-lg"> [ home ]  </p>
         
         <div className="bg-emerald-950/90 text-white my-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
           <p>We believe in a simple formula,</p>
@@ -104,7 +106,7 @@ function App() {
       <div className="bg-emerald-950/90 py-[5rem] lg:px-[20rem]">
        
         {/* Location title */} 
-        <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
+        <p id="locationId" ref={locationLocation} className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
         
           {/* Google Maps API Pin */}
           <div className="px-[10rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">    
@@ -134,7 +136,7 @@ function App() {
 {/* Menu Page 2.0 - this is good for now i think */}
 <div className="py-20 bg-emerald-100/20">
             
-  <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ menu ]  </p>
+  <p id="menuId" ref={menuLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ menu ]  </p>
   <div className="grid grid-cols-2 gap-10 mx-10 md:mx-[13rem] lg:mx-[16rem]">
     {drinksMenu.map((air, index) => (
         <div key={index} className="flex-col bg-gray-300/60 rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
@@ -155,10 +157,10 @@ function App() {
   
 </div>
 
-{/* Testimony Page */}
+{/* Reviews Page */}
       <div className="bg-emerald-950/90 py-20">
         {/* Location title */}
-        <p className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
+        <p id="reviewsId" ref={reviewLocation} className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
 
         {/* whole layout for the carousell */}
         <div className="mx-10 h-[15rem]">
@@ -324,7 +326,7 @@ function App() {
 {/* Socials Page */}
       <div className="bg-white py-20">
          {/* Location title */}
-        <p className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
+        <p id="socialsId" ref={socialsLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
 
 
         <div className="flex justify-center gap-x-[5rem] h-[5rem]">
