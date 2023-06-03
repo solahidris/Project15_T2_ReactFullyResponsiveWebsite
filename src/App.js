@@ -92,11 +92,8 @@ function App() {
         
         <div className="bg-emerald-950/90 text-white my-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
           <p>We believe in a simple formula,</p>
-          <p className="my-5 text-black rounded-3xl py-5 px-2 font-bold text-base bg-white ">Good (Coffee + Beans + Company) = Good Times</p>
-          <p className="pb-5">
-            And we aim to give you just that while still main a sustainable
-            business on the side
-          </p>
+          <p className="mt-5 text-black rounded-t-3xl pt-5 px-2 font-bold text-base bg-white ">Good Coffee + Good Kicks =</p>
+          <p className="mb-5 text-black rounded-b-3xl pb-5 px-2 font-bold text-base bg-white ">Good Times</p>
           <p className="italic">So enjoy your cuppa. Coffee up!</p>
         </div>
       </div>
