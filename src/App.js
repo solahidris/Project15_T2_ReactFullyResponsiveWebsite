@@ -209,19 +209,21 @@ function App() {
 {/* Menu Page 2.0*/}
 <div className="py-20 bg-emerald-100">
             
-  <p>changed variable name, need to do layout and put HC to bottom and flex the container of it</p>
-  <div className="grid grid-cols-2 mx-10 lg:mx-[20rem] gap-10">
+  <p>add price, add price state hot n cold, figure out layout</p>
+  <div className="grid grid-cols-2 gap-10 mx-10 lg:mx-[20rem]">
     {drinksMenu.map((air, index) => (
-      <div key={index} className="bg-gray-300/60 rounded-3xl h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl"/>
-        <div className="flex justify-center text-xs font-mono">
-          <span>{air.name}</span>
+        <div key={index} className="flex-col bg-gray-300/60 rounded-3xl h-[18rem] lg:h-[30rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+            <div className="flex-none">
+              <img src={ air.temp === "hotDrink" ? air.hotPic : air.icedPic} className="rounded-t-3xl"/>
+            </div>
+            <div className="grow text-xs font-mono">
+              <span>{air.name}</span>
+            </div>
+            <div className="flex-none">
+              <button value="hotDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
+              <button value="coldDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
+            </div>
         </div>
-        <div className="flex justify-center">
-          <button value="hotDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full bg-emerald-900 hover:bg-gradient-to-r from-orange-500 to-red-600 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">H</button>
-          <button value="coldDrink" onClick={(event) => drinksMenuHandler(event, index)} className="px-[0.6rem] py-1 text-white rounded-full ml-2 bg-emerald-900 hover:bg-gradient-to-r from-cyan-500 to-blue-500 transition ease-in-out hover:-translate-center-1 hover:scale-110 duration-500">C</button>
-        </div>
-      </div>
     ))}
   </div>
   
