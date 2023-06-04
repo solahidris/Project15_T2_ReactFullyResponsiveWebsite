@@ -37,11 +37,20 @@ function App() {
   const reviewLocation = useRef(null);
   const socialsLocation = useRef(null);
 
+  // Review Data for Carousel
+  // const reviewData = {
+  //   [user: "Azrai Naqiuddin", comment: "kat sini ada jam pasir hihihi, plus a caramel macchiato yang dibuat oleh barista sedap 🥺👍👍"], 
+  //   [user: "Danial Syafiq", comment: "Great coffee. The barista was very knowledgeable about his coffee"], 
+  //   [user: "Nailah", comment: "Fuyoo. Kedai ni cool sangat. Ada Ong. kedekkedek Ong. kedekkedek"], 
+  //   [user: "Hafiz Ahmad", comment: "A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food."], 
+  //   [user: "Uncle Roger", comment: "Sedap, harga berpatutan, selesa"]
+  //   };
+
   // Google Map API Key
   // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
   const apiKeyGmaps = process.env.REACT_APP_GOOGLEMAP_API_KEY_MAP_A;
 
-  // can export to component later
+  // Review Carousel - can export to component later
   const carouselSettings = {
     dots: true,
     infinite: true,
@@ -55,24 +64,14 @@ function App() {
       {/* <AppDescription /> */}
 
 {/* Website Header */}
-<div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <img
-          className="h-[7rem] rounded-3xl"
-          src={
-            "https://cdn.pentas.io/next-s3-uploads/55a71fe2-14a2-4544-a912-030d47d36bb7/IMG_R_0008.JPG"
-          }
-          alt="logoTitle"
-        />
+      <div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+        <img className="h-[7rem] rounded-3xl" alt="logoTitle" src={"https://cdn.pentas.io/next-s3-uploads/55a71fe2-14a2-4544-a912-030d47d36bb7/IMG_R_0008.JPG"}/>
           <div className="self-center">
-            <p className="self-center text-lg font-mono text-black font-bold tracking-widest">
-              coffee and kicks
-            </p>
+            <p className="self-center text-lg font-mono text-black font-bold tracking-widest">coffee and kicks</p>
             <div className="flex mt-[0.1rem]">
-            <p className="grow self-center text-xs font-mono tracking-widest">
-              caffeine near me
-            </p>
-            <p className="mr-2 scale-75"><FaTiktok /></p>
-            <p className="scale-75"><FaInstagram /></p>
+              <p className="grow self-center text-xs font-mono tracking-widest">caffeine near me</p>
+              <p className="mr-2 scale-75"><FaTiktok /></p>
+              <p className="scale-75"><FaInstagram /></p>
             </div>
           </div>
       </div>
@@ -88,50 +87,32 @@ function App() {
       </div>
 
 {/* Home Page */}
-      <div className="bg-gray-100 px-10 lg:px-[20rem] py-5">
+      <div className="bg-gray-100 px-10 lg:px-[20rem] py-20">
         {/* home title */}
-        <p id="homeId" ref={homeLocation} className="text-center pt-[1rem] mb-[-2.75rem] font-mono tracking-widest text-lg"> [ home ]  </p>
+        <p id="homeId" ref={homeLocation} className="text-center font-mono tracking-widest text-lg"> [ home ]  </p>
         
-        <div className="bg-emerald-950/90 text-white my-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+        <div className="bg-emerald-950/90 text-white mt-10 mb-20 py-10 px-5 text-center font-mono text-xs rounded-3xl transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
           <p>We believe in a simple formula,</p>
-          <p className="mt-5 text-black rounded-t-3xl pt-5 px-2 font-bold text-base bg-white ">Good Coffee + Good Kicks =</p>
-          <p className="mb-5 text-black rounded-b-3xl pb-5 px-2 font-bold text-base bg-white ">Good Times</p>
+          <p className="mt-6 text-black rounded-t-3xl pt-5 pb-1 px-2 font-bold text-base bg-white ">Good Coffee + Good Kicks =</p>
+          <p className="mb-6 mt-[-0.1rem] text-black rounded-b-3xl pb-5 pt-1 px-2 font-bold text-base bg-white ">Good Times</p>
           <p className="italic">So enjoy your cuppa. Coffee up!</p>
         </div>
       </div>
 
-{/* Location Page */}
-    <div className="">
-  
-      <div className="bg-emerald-950/90 py-[5rem] lg:px-[20rem]">
-       
-        {/* Location title */} 
-        <p id="locationId" ref={locationLocation} className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
-        
-          {/* Google Maps API Pin */}
-          <div className="px-[10rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">    
-            <div className="flex justify-center py-2">
-              <img src={maphardcode} alt="" className="scale-[120%] mb-[1rem]"/>
-              {/* <iframe
-                title="gmaps-pin"
-                width="1200"
-                height="350"
-                className="border:0 rounded-3xl"
-                loading="lazy"
-                allowfullscreen
-                src={apiKeyGmaps}
-              ></iframe> */}
-            </div>
-            {/* Text below Gmaps */}
-            <p className="text-white font-mono text-xs text-center tracking-wide">
-              📍 Hirup Cafe Seksyen 990
-            </p>
-            <p className="mt-2 text-white font-mono text-[10px] text-center tracking-wide">44, Jalan Tengku Ampuan Zabedah A 9/A, Seksyen 9, 40100 Shah Alam, Selangor
-            </p>
-          </div>
-      </div>
-
+{/* Location Page 2.0 */}
+<div className="bg-emerald-950/90 py-20">
+  {/* <p className="text-center mb-10">[ location ]</p> */}
+  <p id="locationId" ref={locationLocation} className="text-white text-center mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
+  <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+    <div className="flex justify-center">
+      <img src={maphardcode} alt="" className="object-contain max-w-[200px] lg:max-w-[400px]" />
     </div>
+    <div className="font-mono text-white">
+      <p className="text-xs font-bold text-center mx-[20%] my-2">📍 Coffee and Kicks</p>
+      <p className="text-[10px] text-center mx-[30%]">44, Jalan Tengku Ampuan Zabedah A 9/A, Seksyen 9, 40100 Shah Alam, Selangor</p>
+    </div>
+  </div>
+</div>
 
 {/* Menu Page 2.0 - this is good for now i think */}
 <div className="py-20 bg-emerald-100/20">
@@ -164,6 +145,12 @@ function App() {
 
         {/* whole layout for the carousell */}
         <div className="mx-10 h-[15rem]">
+        
+        {/* Container Item in Carousell Template */}
+         
+
+ 
+
         
    
         <Slider {...carouselSettings} className="pb-3">
@@ -347,6 +334,7 @@ function App() {
           </div>
         </div>
       </div>
+
 {/* just adding a footer for now - need to adjust later */}
 
     <div className="bg-emerald-950/90 pt-10 pb-20">
