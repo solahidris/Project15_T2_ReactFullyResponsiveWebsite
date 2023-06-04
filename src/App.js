@@ -2,13 +2,17 @@ import "./App.css";
 // import AppDescription from "./components/AppDescription";
 import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
+import { RxDotsHorizontal } from "react-icons/rx";
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import maphardcode from "./map_hardcode.png";
 import { useState } from "react";
 import { useRef } from "react";
 import ReactDOM from 'react-dom';
+import ReviewTemplate from "./components/ReviewTemplate";
 
 //https://react-icons.github.io/react-icons (icons website)
 // ctrl shift L to pick all same
@@ -38,13 +42,13 @@ function App() {
   const socialsLocation = useRef(null);
 
   // Review Data for Carousel
-  // const reviewData = {
-  //   [user: "Azrai Naqiuddin", comment: "kat sini ada jam pasir hihihi, plus a caramel macchiato yang dibuat oleh barista sedap 🥺👍👍"], 
-  //   [user: "Danial Syafiq", comment: "Great coffee. The barista was very knowledgeable about his coffee"], 
-  //   [user: "Nailah", comment: "Fuyoo. Kedai ni cool sangat. Ada Ong. kedekkedek Ong. kedekkedek"], 
-  //   [user: "Hafiz Ahmad", comment: "A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food."], 
-  //   [user: "Uncle Roger", comment: "Sedap, harga berpatutan, selesa"]
-  //   };
+  const reviewData = [
+    {user: "Azrai Naqiuddin", comment: "kat sini ada jam pasir hihihi, plus a caramel macchiato yang dibuat oleh barista sedap 🥺👍👍"}, 
+    {user: "Danial Syafiq", comment: "Great coffee. The barista was very knowledgeable about his coffee"}, 
+    {user: "Nailah", comment: "Fuyoo. Kedai ni cool sangat. Ada Ong. kedekkedek Ong. kedekkedek"}, 
+    {user: "Hafiz Ahmad", comment: "A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food."}, 
+    {user: "Uncle Roger", comment: "Sedap, harga berpatutan, selesa"}
+  ];
 
   // Google Map API Key
   // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
@@ -86,6 +90,40 @@ function App() {
         <button onClick={()=>{const node = ReactDOM.findDOMNode(socialsLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
       </div>
 
+
+{/* Reviews Page 2.0*/}
+<div className="py-20 bg-emerald-700">
+  <div className="pb-5 bg-emerald-800 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+    {reviewData.map((review, index) => (
+      <div key={index} className="">
+        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
+          <div> {/* each comment 1st-container */}
+            <div> {/* user container top with stars */}     
+              <div className="flex gap-x-2 mx-4"> {/* 1st row info icon and name */}
+                <FaRegUserCircle className="self-center text-emerald-950/90" />
+                <p className="text-emerald-950/90 text-xs grow text-end">{review.user}</p>
+              </div>
+              <div className="flex self-center mx-4 py-2"> {/* 2nd row info 5 star icon */}
+                <FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" />
+                <p className="text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
+            </div>
+            <div className="bg-emerald-950/80 rounded-3xl mx-4 text-sm row-start-2 row-span-4"> {/* 3rd row info comment */}
+                <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
+            </div>
+          </div>
+        </div>
+      </div>    
+    ))}
+  </div>
+  <div className="text-center">
+    <p className="tracking-[1rem] text-3xl text-gray-200 font-bold">.....</p>
+  </div>
+</div>
+
+
+      
+
 {/* Home Page */}
       <div className="bg-gray-100 px-10 lg:px-[20rem] py-20">
         {/* home title */}
@@ -101,22 +139,25 @@ function App() {
 
 {/* Location Page 2.0 */}
 <div className="bg-emerald-950/90 py-20">
-  {/* <p className="text-center mb-10">[ location ]</p> */}
+
   <p id="locationId" ref={locationLocation} className="text-white text-center mb-10 font-mono tracking-widest text-lg"> [ location ]  </p>
-  <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-    <div className="flex justify-center">
-      <img src={maphardcode} alt="" className="object-contain max-w-[200px] lg:max-w-[400px]" />
+  <a href="https://goo.gl/maps/URHa9eLMsTkaY6BD6">
+    <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
+      <div className="flex justify-center">
+        <img src={maphardcode} alt="" className="object-contain max-w-[200px] lg:max-w-[400px]" />
+      </div>
+      <div className="font-mono text-white">
+        <p className="text-xs font-bold text-center mx-[20%] my-2">📍 Coffee and Kicks</p>
+        <p className="text-[10px] text-center mx-[30%]">44, Jalan Tengku Ampuan Zabedah A 9/A, Seksyen 9, 40100 Shah Alam, Selangor</p>
+      </div>
     </div>
-    <div className="font-mono text-white">
-      <p className="text-xs font-bold text-center mx-[20%] my-2">📍 Coffee and Kicks</p>
-      <p className="text-[10px] text-center mx-[30%]">44, Jalan Tengku Ampuan Zabedah A 9/A, Seksyen 9, 40100 Shah Alam, Selangor</p>
-    </div>
-  </div>
+  </a>
+
 </div>
 
 {/* Menu Page 2.0 - this is good for now i think */}
 <div className="py-20 bg-emerald-100/20">
-            
+      
   <p id="menuId" ref={menuLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ menu ]  </p>
   <div className="grid grid-cols-2 gap-10 mx-10 md:mx-[13rem] lg:mx-[16rem]">
     {drinksMenu.map((air, index) => (
@@ -138,6 +179,7 @@ function App() {
   
 </div>
 
+
 {/* Reviews Page */}
       <div className="bg-emerald-950/90 py-20">
         {/* Location title */}
@@ -148,11 +190,6 @@ function App() {
         
         {/* Container Item in Carousell Template */}
          
-
- 
-
-        
-   
         <Slider {...carouselSettings} className="pb-3">
         {/* first container */}
         <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
