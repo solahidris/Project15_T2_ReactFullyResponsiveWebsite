@@ -4,7 +4,6 @@ import { FaRegUserCircle, FaStar } from 'react-icons/fa';
 
 import maphardcode from "./map_hardcode.png";
 import { useState, useRef } from "react";
-import ReactDOM from 'react-dom';
 
 import Header from "./components/Header";
 import LogoHeaderFooter from "./components/LogoHeaderFooter";
@@ -119,10 +118,10 @@ function App() {
 
   <p id="reviewsId" ref={reviewLocation} className="text-white text-center mb-10 font-mono tracking-widest text-lg"> [ reviews ]  </p>
 
-  <div ref={carouselRef} onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)} className="pb-5 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+  <div ref={carouselRef} onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)} className="pb-5 mx-10 md:mx-[13rem] lg:mx-[16rem] gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
     {reviewData.map((review, index) => (
       <div key={index} className="" style={{ scrollLeft: scrollPosition }}>
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
+        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[350px] grid grid-rows-4 grid-flow-col font-mono"> 
           <div>
 
             <div> {/* user container top with stars */}     
@@ -136,7 +135,7 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-emerald-950/80 rounded-3xl text-sm mt-4 mx-4 h-[200px] lg:h-[280px] row-start-2 row-span-4"> {/* 3rd row info comment */}
+            <div className="bg-emerald-950/80 rounded-3xl text-sm mt-4 mx-4 h-[200px] lg:h-[200px] row-start-2 row-span-4"> {/* 3rd row info comment */}
                 <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
             </div>
 
