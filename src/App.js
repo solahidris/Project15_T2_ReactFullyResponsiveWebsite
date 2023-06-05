@@ -2,17 +2,11 @@ import "./App.css";
 // import AppDescription from "./components/AppDescription";
 import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
-import { RxDotsHorizontal } from "react-icons/rx";
-
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 import maphardcode from "./map_hardcode.png";
 import { useState } from "react";
 import { useRef } from "react";
 import ReactDOM from 'react-dom';
-import ReviewTemplate from "./components/ReviewTemplate";
 
 //https://react-icons.github.io/react-icons (icons website)
 // ctrl shift L to pick all same
@@ -49,6 +43,12 @@ function App() {
     {user: "Hafiz Ahmad", comment: "A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food."}, 
     {user: "Uncle Roger", comment: "Sedap, harga berpatutan, selesa"}
   ];
+
+  // Review Data Position Snap
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const carouselRef = useRef(null);
+
+
 
   // Google Map API Key
   // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
@@ -88,41 +88,7 @@ function App() {
         <button onClick={()=>{const node = ReactDOM.findDOMNode(menuLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">menu</button>
         <button onClick={()=>{const node = ReactDOM.findDOMNode(reviewLocation.current); window.scrollTo({top:node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">reviews</button>
         <button onClick={()=>{const node = ReactDOM.findDOMNode(socialsLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
-      </div>
-
-
-{/* Reviews Page 2.0*/}
-<div className="py-20 bg-emerald-700">
-  <div className="pb-5 bg-emerald-800 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
-    {reviewData.map((review, index) => (
-      <div key={index} className="">
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
-          <div> {/* each comment 1st-container */}
-            <div> {/* user container top with stars */}     
-              <div className="flex gap-x-2 mx-4"> {/* 1st row info icon and name */}
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 text-xs grow text-end">{review.user}</p>
-              </div>
-              <div className="flex self-center mx-4 py-2"> {/* 2nd row info 5 star icon */}
-                <FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" />
-                <p className="text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
-            </div>
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 text-sm row-start-2 row-span-4"> {/* 3rd row info comment */}
-                <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
-            </div>
-          </div>
-        </div>
-      </div>    
-    ))}
-  </div>
-  <div className="text-center">
-    <p className="tracking-[1rem] text-3xl text-gray-200 font-bold">.....</p>
-  </div>
-</div>
-
-
-      
+      </div>      
 
 {/* Home Page */}
       <div className="bg-gray-100 px-10 lg:px-[20rem] py-20">
@@ -179,173 +145,44 @@ function App() {
   
 </div>
 
+{/* Reviews Page 2.0*/}
+{/* Add numbering index to reviews
+change bg to actual color
+strech down inner comment to bottom
+add some space between comment and user name */}
 
-{/* Reviews Page */}
-      <div className="bg-emerald-950/90 py-20">
-        {/* Location title */}
-        <p id="reviewsId" ref={reviewLocation} className="text-white text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ reviews ] </p>
+<div className="py-20 bg-emerald-700">
 
-        {/* whole layout for the carousell */}
-        <div className="mx-10 h-[15rem]">
-        
-        {/* Container Item in Carousell Template */}
-         
-        <Slider {...carouselSettings} className="pb-3">
-        {/* first container */}
-        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
-          {/* each comment 1st-container */}
-          <div>
-            {/* user container top with stars */}
-            <div>
-              {/* 1st row info icon and name */}
-              <div className="flex gap-x-2 mx-4">
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Azrai Naqiuddin</p>
-              </div>
-              {/* 2nd row info 5 star icon */}
-              <div className="flex self-center mx-4 py-2">
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
+<div ref={carouselRef} onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)} className="pb-5 bg-emerald-800 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+  {reviewData.map((review, index) => (
+    <div key={index} className="" style={{ scrollLeft: scrollPosition }}>
+      <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
+        <div> {/* each comment 1st-container */}
+          <div> {/* user container top with stars */}     
+            <div className="flex gap-x-2 mx-4"> {/* 1st row info icon and name */}
+              <FaRegUserCircle className="self-center text-emerald-950/90" />
+              <p className="text-emerald-950/90 text-xs grow text-end">{review.user}</p>
             </div>
-            {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
-              <p className="px-4 py-3 text-xs text-white">kat sini ada jam pasir hihihi, plus a caramel macchiato yang dibuat oleh barista sedap 🥺👍👍</p>
+            <div className="flex self-center mx-4 py-2"> {/* 2nd row info 5 star icon */}
+              <FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" />
+              <p className="text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
             </div>
           </div>
-        </div>
-
-        {/* spacer container 1-2 & 2-3 */}
-        <div></div>
-
-        {/* second container */}
-        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-3.5rem] lg:ml-[-2.5rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
-          {/* each comment 2nd-container */}
-          <div>
-            {/* user container top with stars */}
-            <div>
-              {/* 1st row info icon and name */}
-              <div className="flex gap-x-2 mx-4 ">
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Danial Syafiq</p>
-              </div>
-              {/* 2nd row info 5 star icon */}
-              <div className="flex self-center mx-4 py-2">
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
-            </div>
-            {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
-              <p className="px-4 py-3 text-xs text-white">Great coffee. The barista was very knowledgeable about his coffee</p>
-            </div>
+          <div className="bg-emerald-950/80 rounded-3xl mx-4 text-sm row-start-2 row-span-4"> {/* 3rd row info comment */}
+              <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
           </div>
-        </div>
-
-        {/* third container */}
-        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[2rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
-          {/* each comment 3rd-container */}
-          <div>
-            {/* user container top with stars */}
-            <div>
-              {/* 1st row info icon and name */}
-              <div className="flex gap-x-2 mx-4 ">
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 font-mono text-xs grow text-end">Hafiz Ahmad</p>
-              </div>
-              {/* 2nd row info 5 star icon */}
-              <div className="flex self-center mx-4 py-2">
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
-            </div>
-            {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
-              <p className="px-4 py-3 text-xs text-white">A good place to hangout at nite. Tiptop service & very friendly employee. Serve light food.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* spacer container 3-4 & 4-5 */}
-        <div></div>
-
-        {/* fourth container */}
-        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[-1.3rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
-          {/* each comment 4th-container */}
-          <div>
-            {/* user container top with stars */}
-            <div>
-              {/* 1st row info icon and name */}
-              <div className="flex gap-x-2 mx-4 ">
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 font-mono text-xs grow text-end">GIBS Eco Resort</p>
-              </div>
-              {/* 2nd row info 5 star icon */}
-              <div className="flex self-center mx-4 py-2">
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
-            </div>
-            {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
-              <p className="px-4 py-3 text-xs text-white">Kopi diorg mmg sedappp,</p>
-            </div>
-          </div>
-        </div>
-
-        {/* fifth container */}
-        <div className="rounded-3xl bg-gray-100 min-h-[14.5rem] py-4 ml-[3.8rem] min-w-[11rem] max-w-[20rem] grid grid-rows-4 grid-flow-col">
-          {/* each comment 5th-container */}
-          <div>
-            {/* user container top with stars */}
-            <div>
-              {/* 1st row info icon and name */}
-              <div className="flex gap-x-2 mx-4">
-                <FaRegUserCircle className="self-center text-emerald-950/90" />
-                <p className="text-emerald-950/90 font-mono text-xs text-end">Uncle Roger</p>
-              </div>
-              {/* 2nd row info 5 star icon */}
-              <div className="flex self-center mx-4 py-2">
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <FaStar className="text-yellow-300" />
-                <p className="font-mono text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
-              </div>
-            </div>
-            {/* 3rd row info comment */}
-            <div className="bg-emerald-950/80 min-h-[9.5rem] rounded-3xl mx-4 font-mono text-sm row-start-2 row-span-4">
-              <p className="px-4 py-3 text-xs text-white">Sedap, harga berpatutan, selesa</p>
-            </div>
-          </div>
-        </div>
-
-        {/* spacer container 5-1 */}
-        <div></div>
-        
-      </Slider>
-
         </div>
       </div>
+    </div>    
+  ))}
+</div>
 
-      <p className="text-white text-center">----------------------------</p>
+<div className="text-center">
+  <p className="tracking-[1rem] text-3xl text-gray-200 font-bold">.....</p>
+</div>
+
+</div>
+
 
 {/* Socials Page */}
       <div className="bg-white py-20">
