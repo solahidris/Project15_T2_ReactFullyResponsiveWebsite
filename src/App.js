@@ -57,7 +57,7 @@ function App() {
   };
 
   return (
-    <div className="bg-emerald-950/90 h-screen pt-10 pb-20">
+    <div className="bg-emerald-950/90 h-screen py-20">
       {/* <AppDescription /> */}
 
       {/* Website Header */}
@@ -201,7 +201,7 @@ function App() {
 
 {/* just adding a footer for now - need to adjust later */}
 
-    <div className="bg-emerald-950/90 pt-10 pb-20">
+    <div className="bg-emerald-950/90 py-20">
       {/* <AppDescription /> */}
 
       {/* Website Header */}
