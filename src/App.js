@@ -1,6 +1,6 @@
 import "./App.css";
 // import AppDescription from "./components/AppDescription";
-import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
+import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
 
 import maphardcode from "./map_hardcode.png";
@@ -8,7 +8,7 @@ import { useState, useRef } from "react";
 import ReactDOM from 'react-dom';
 
 import Header from "./components/Header";
-
+import LogoHeaderFooter from "./components/LogoHeaderFooter";
 
 function App() {
 
@@ -61,17 +61,7 @@ function App() {
       {/* <AppDescription /> */}
 
       {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <img className="h-[7rem] rounded-3xl" alt="logoTitle" src={"https://cdn.pentas.io/next-s3-uploads/55a71fe2-14a2-4544-a912-030d47d36bb7/IMG_R_0008.JPG"}/>
-          <div className="self-center">
-            <p className="self-center text-lg font-mono text-black font-bold tracking-widest">coffee and kicks</p>
-            <div className="flex mt-[0.1rem]">
-              <p className="grow self-center text-xs font-mono tracking-widest">caffeine near me</p>
-              <p className="mr-2 scale-75"><FaTiktok /></p>
-              <p className="scale-75"><FaInstagram /></p>
-            </div>
-          </div>
-      </div>
+      <LogoHeaderFooter />
 
       {/* Navbar Header */}
       <Header homeLocation={homeLocation} locationLocation={locationLocation} menuLocation={menuLocation} reviewLocation={reviewLocation} socialsLocation={socialsLocation}/>
@@ -201,34 +191,9 @@ function App() {
 
 {/* just adding a footer for now - need to adjust later */}
 
-    <div className="bg-emerald-950/90 py-20">
-      {/* <AppDescription /> */}
-
-      {/* Website Header */}
-      <div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <img
-          className="h-[7rem] rounded-3xl"
-          src={
-            "https://cdn.pentas.io/next-s3-uploads/55a71fe2-14a2-4544-a912-030d47d36bb7/IMG_R_0008.JPG"
-          }
-          alt="logoTitle"
-        />
-          <div className="self-center">
-            <p className="self-center text-lg font-mono text-black font-bold tracking-widest">
-              coffee and kicks
-            </p>
-            <div className="flex mt-[0.1rem]">
-            <p className="grow self-center text-xs font-mono tracking-widest">
-              caffeine near me
-            </p>
-            <p className="mr-2 scale-75"><FaTiktok /></p>
-            <p className="scale-75"><FaInstagram /></p>
-            </div>
-          </div>
+      <div className="bg-emerald-950/90 py-20">
+        <LogoHeaderFooter />
       </div>
-
-    </div>
-
     </div>
   );
 }
