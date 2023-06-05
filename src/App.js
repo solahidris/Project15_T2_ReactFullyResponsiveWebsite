@@ -4,12 +4,11 @@ import { FaTiktok, FaInstagram, FaTwitter, GiRoundStar } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
 
 import maphardcode from "./map_hardcode.png";
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import ReactDOM from 'react-dom';
 
-//https://react-icons.github.io/react-icons (icons website)
-// ctrl shift L to pick all same
+import Header from "./components/Header";
+
 
 function App() {
 
@@ -48,12 +47,6 @@ function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
 
-
-
-  // Google Map API Key
-  // const apiKey = process.env.REACT_APP_GOOGLEMAP_API_KEY; // (not in use)
-  const apiKeyGmaps = process.env.REACT_APP_GOOGLEMAP_API_KEY_MAP_A;
-
   // Review Carousel - can export to component later
   const carouselSettings = {
     dots: true,
@@ -67,7 +60,7 @@ function App() {
     <div className="bg-emerald-950/90 h-screen pt-10 pb-20">
       {/* <AppDescription /> */}
 
-{/* Website Header */}
+      {/* Website Header */}
       <div className="flex justify-center bg-white rounded-3xl mx-10 pr-2 lg:mx-[20rem] transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
         <img className="h-[7rem] rounded-3xl" alt="logoTitle" src={"https://cdn.pentas.io/next-s3-uploads/55a71fe2-14a2-4544-a912-030d47d36bb7/IMG_R_0008.JPG"}/>
           <div className="self-center">
@@ -80,15 +73,8 @@ function App() {
           </div>
       </div>
 
-{/* Navbar Header */}
- {/* scroll to function working - need to map this to simplify code */}
-      <div className="bg-gray-100 py-3 mt-10 mb-20 mx-10 lg:mx-[20rem] gap-x-5 rounded-3xl flex justify-center font-mono text-xs transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
-        <button onClick={()=>{const node = ReactDOM.findDOMNode(homeLocation.current); window.scrollTo(({top: node.offsetTop, behavior:"smooth"}))}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">home</button>
-        <button onClick={()=>{const node = ReactDOM.findDOMNode(locationLocation.current); window.scrollTo({top:node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">location</button>
-        <button onClick={()=>{const node = ReactDOM.findDOMNode(menuLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">menu</button>
-        <button onClick={()=>{const node = ReactDOM.findDOMNode(reviewLocation.current); window.scrollTo({top:node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">reviews</button>
-        <button onClick={()=>{const node = ReactDOM.findDOMNode(socialsLocation.current); window.scrollTo({top: node.offsetTop, behavior:"smooth"})}} className="hover:font-bold transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-300">socials</button>
-      </div>      
+      {/* Navbar Header */}
+      <Header homeLocation={homeLocation} locationLocation={locationLocation} menuLocation={menuLocation} reviewLocation={reviewLocation} socialsLocation={socialsLocation}/>
 
 {/* Home Page */}
       <div className="bg-gray-100 px-10 lg:px-[20rem] py-20">
