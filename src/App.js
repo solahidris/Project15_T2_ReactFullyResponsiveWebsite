@@ -146,47 +146,51 @@ function App() {
 </div>
 
 {/* Reviews Page 2.0*/}
-{/* Add numbering index to reviews
-change bg to actual color
-strech down inner comment to bottom
-add some space between comment and user name */}
 
-<div className="py-20 bg-emerald-700">
+<div className="py-20 bg-emerald-950/90">
 
-<div ref={carouselRef} onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)} className="pb-5 bg-emerald-800 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
-  {reviewData.map((review, index) => (
-    <div key={index} className="" style={{ scrollLeft: scrollPosition }}>
-      <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
-        <div> {/* each comment 1st-container */}
-          <div> {/* user container top with stars */}     
-            <div className="flex gap-x-2 mx-4"> {/* 1st row info icon and name */}
-              <FaRegUserCircle className="self-center text-emerald-950/90" />
-              <p className="text-emerald-950/90 text-xs grow text-end">{review.user}</p>
+  <p id="reviewsId" ref={reviewLocation} className="text-white text-center mb-10 font-mono tracking-widest text-lg"> [ reviews ]  </p>
+
+  <div ref={carouselRef} onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)} className="pb-5 mx-10 gap-x-10 flex overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+    {reviewData.map((review, index) => (
+      <div key={index} className="" style={{ scrollLeft: scrollPosition }}>
+        <div className="rounded-3xl bg-gray-100 py-4 min-w-[11rem] max-w-[20rem] max-h-[300px] lg:max-h-[400px] grid grid-rows-4 grid-flow-col font-mono"> 
+          <div>
+
+            <div> {/* user container top with stars */}     
+              <div className="flex gap-x-2 mx-4"> {/* 1st row info icon and name */}
+                <FaRegUserCircle className="self-center text-emerald-950/90" />
+                <p className="text-emerald-950/90 text-xs grow text-end">{review.user}</p>
+              </div>
+              <div className="flex self-center mx-4 py-2"> {/* 2nd row info 5 star icon */}
+                <FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" />
+                <p className="text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+              </div>
             </div>
-            <div className="flex self-center mx-4 py-2"> {/* 2nd row info 5 star icon */}
-              <FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" /><FaStar className="text-yellow-300" />
-              <p className="text-xs grow text-end mt-[1px] font-bold text-emerald-950/90">5.0</p>
+
+            <div className="bg-emerald-950/80 rounded-3xl text-sm mt-4 mx-4 h-[200px] lg:h-[280px] row-start-2 row-span-4"> {/* 3rd row info comment */}
+                <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
             </div>
-          </div>
-          <div className="bg-emerald-950/80 rounded-3xl mx-4 text-sm row-start-2 row-span-4"> {/* 3rd row info comment */}
-              <p className="px-4 py-3 text-xs text-white">{review.comment}</p>
+
           </div>
         </div>
-      </div>
-    </div>    
-  ))}
-</div>
+        <div>
+          <p className="text-[8px] text-center mt-[-15px]">{index+1} / {reviewData.length}</p>
+        </div>
+      </div>    
+    ))}
+  </div>
 
-<div className="text-center">
-  <p className="tracking-[1rem] text-3xl text-gray-200 font-bold">.....</p>
-</div>
+  <div className="text-center">
+    <p className="tracking-[1rem] text-3xl text-gray-200 font-bold">.....</p>
+  </div>
 
 </div>
 
 
 {/* Socials Page */}
       <div className="bg-white py-20">
-         {/* Location title */}
+         {/* Socials title */}
         <p id="socialsId" ref={socialsLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
 
 
