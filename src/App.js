@@ -1,6 +1,5 @@
 import "./App.css";
 // import AppDescription from "./components/AppDescription";
-import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
 
 import maphardcode from "./map_hardcode.png";
@@ -9,6 +8,7 @@ import ReactDOM from 'react-dom';
 
 import Header from "./components/Header";
 import LogoHeaderFooter from "./components/LogoHeaderFooter";
+import Socials from "./components/Socials";
 
 function App() {
 
@@ -47,14 +47,6 @@ function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const carouselRef = useRef(null);
 
-  // Review Carousel - can export to component later
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
 
   return (
     <div className="bg-emerald-950/90 h-screen py-20">
@@ -164,33 +156,10 @@ function App() {
 </div>
 
 
-{/* Socials Page */}
-      <div className="bg-white py-20">
-         {/* Socials title */}
-        <p id="socialsId" ref={socialsLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
+      {/* Socials Page */}
+      <Socials socialsLocation={socialsLocation} />
 
-
-        <div className="flex justify-center gap-x-[5rem] h-[5rem]">
-          <div className=" flex justify-items-center">
-            <a href="https://www.instagram.com/coffeeandkicks.xyz/" target="_blank">
-              <button className="text-emerald-950"><FaInstagram /></button>
-            </a>
-          </div>
-          <div className=" flex justify-items-center">
-            <a href="https://www.tiktok.com/@coffeeandkicks.xyz" target="_blank">
-              <button className="text-emerald-950"><FaTiktok /></button>
-            </a>
-          </div>
-          <div className=" flex justify-items-center">
-            <a href="https://twitter.com/coffeeandkicksx/" target="_blank">
-              <button className="text-emerald-950"><FaTwitter /></button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-{/* just adding a footer for now - need to adjust later */}
-
+      {/* Footer */}
       <div className="bg-emerald-950/90 py-20">
         <LogoHeaderFooter />
       </div>
