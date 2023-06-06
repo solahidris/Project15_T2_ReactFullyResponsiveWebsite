@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/Header.js",
     "./src/components/LogoHeaderFooter.js",
     "./src/components/Socials.js",
+    "./src/components/Reviews.js",
   ],
   theme: {
     extend: {
