@@ -9,6 +9,7 @@ module.exports = {
     "./src/components/Reviews.js",
     "./src/components/Menu.js",
     "./src/components/Location.js",
+    "./src/components/Home.js",
   ],
   theme: {
     extend: {
