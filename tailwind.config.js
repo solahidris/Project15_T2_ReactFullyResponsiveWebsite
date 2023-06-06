@@ -7,6 +7,8 @@ module.exports = {
     "./src/components/LogoHeaderFooter.js",
     "./src/components/Socials.js",
     "./src/components/Reviews.js",
+    "./src/components/Menu.js",
+    "./src/components/Location.js",
   ],
   theme: {
     extend: {
