@@ -1,6 +1,6 @@
+// Testing PR for checking
 import "./App.css";
-// import AppDescription from "./components/AppDescription";
-
+import React from "react";
 import { useRef } from "react";
 
 import Header from "./components/Header";
@@ -20,11 +20,8 @@ function App() {
   const reviewLocation = useRef(null);
   const socialsLocation = useRef(null);
 
-
-
   return (
     <div className="bg-emerald-950/90 h-screen py-20">
-      {/* <AppDescription /> */}
 
       {/* Website Header */}
       <LogoHeaderFooter />
@@ -48,9 +45,8 @@ function App() {
       <Socials socialsLocation={socialsLocation} />
 
       {/* Footer */}
-      <div className="bg-emerald-950/90 py-20">
-        <LogoHeaderFooter />
-      </div>
+      <div className="bg-emerald-950/90 py-20"><LogoHeaderFooter /></div>
+
     </div>
   );
 }
