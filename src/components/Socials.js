@@ -2,6 +2,7 @@ import React from "react";
 import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 const Socials = ( { socialsLocation } ) => {
+    // just adding a comment here to test
     return (
         <div className="bg-white py-20">
             <p id="socialsId" ref={socialsLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
