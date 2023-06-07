@@ -1,5 +1,5 @@
 import React from "react";
-import maphardcode from "../map_hardcode.png";
+import maphardcode from "../assets/map_hardcode.png";
 
 const Location = ( { locationLocation } ) => {
   return (

@@ -2,14 +2,13 @@
 module.exports = {
   content: [
     "./src/App.js",
-    "./src/components/AppDescription.js",
     "./src/components/Header.js",
-    "./src/components/LogoHeaderFooter.js",
-    "./src/components/Socials.js",
-    "./src/components/Reviews.js",
-    "./src/components/Menu.js",
-    "./src/components/Location.js",
     "./src/components/Home.js",
+    "./src/components/Location.js",
+    "./src/components/LogoHeaderFooter.js",
+    "./src/components/Menu.js",
+    "./src/components/Reviews.js",
+    "./src/components/Socials.js",
   ],
   theme: {
     extend: {
