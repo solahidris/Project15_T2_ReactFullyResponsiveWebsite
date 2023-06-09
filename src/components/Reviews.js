@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 import { FaRegUserCircle, FaStar } from 'react-icons/fa';
+import { motion } from "framer-motion";
 
 const Reviews = ( { reviewLocation } ) => {
     const reviewData = [
@@ -25,6 +26,12 @@ const Reviews = ( { reviewLocation } ) => {
         [ reviews ]{" "}
       </p>
 
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
       <div
         ref={carouselRef}
         onScroll={() => setScrollPosition(carouselRef.current.scrollLeft)}
@@ -38,7 +45,7 @@ const Reviews = ( { reviewLocation } ) => {
                   {" "}
                   {/* user container top with stars */}
                   <div className="flex gap-x-2 mx-4">
-                    {" "}
+                      {" "}
                     {/* 1st row info icon and name */}
                     <FaRegUserCircle className="self-center text-emerald-950/90" />
                     <p className="text-emerald-950/90 text-xs grow text-end">
@@ -82,6 +89,7 @@ const Reviews = ( { reviewLocation } ) => {
           .....
         </p>
       </div>
+      </motion.div>
     </div>
   );
 };

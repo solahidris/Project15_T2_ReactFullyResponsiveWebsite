@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTiktok, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { motion } from "framer-motion";
 
 const Socials = ( { socialsLocation } ) => {
     // just adding a comment here to test
@@ -7,7 +8,13 @@ const Socials = ( { socialsLocation } ) => {
         <div>
             <div className="bg-white py-20">
                 <p id="socialsId" ref={socialsLocation} className="text-center mt-[-2.2rem] mb-10 font-mono tracking-widest text-lg"> [ socials ] </p>
-
+                
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                >
                 <div className="flex justify-center h-[10rem]">
                 <div className="flex gap-x-[5rem] lg:gap-x-[10rem] items-stretch">
                     <div className="self-center">
@@ -28,6 +35,7 @@ const Socials = ( { socialsLocation } ) => {
                 </div>
 
                 </div>
+                </motion.div>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import React from "react";
 import maphardcode from "../assets/map_hardcode.png";
+import { motion } from "framer-motion";
 
 const Location = ( { locationLocation } ) => {
   return (
@@ -12,6 +13,12 @@ const Location = ( { locationLocation } ) => {
         {" "}
         [ location ]{" "}
       </p>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
       <a href="https://goo.gl/maps/URHa9eLMsTkaY6BD6">
         <div className="transition ease-in-out hover:-translate-center-1 hover:scale-105 duration-500">
           <div className="flex justify-center">
@@ -32,6 +39,7 @@ const Location = ( { locationLocation } ) => {
           </div>
         </div>
       </a>
+      </motion.div>
     </div>
   );
 };
